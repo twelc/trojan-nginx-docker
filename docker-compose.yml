@@ -1,0 +1,49 @@
+services:
+
+  trojan:
+    #image: trojangfw/trojan
+    image: gists/trojan-go
+    command: trojan-go -config /config/config.json
+    restart: always
+    ports:
+      - "443:443"
+    networks:
+      - app-network
+    volumes:
+      - "./nginx/cert.crt:/etc/cert.crt"
+      - "./nginx/key.key:/etc/key.key"
+      - "./trojan/config.json:/config/config.json"
+      - "./trojan/geoip.dat:/geoip"
+  nginx:
+    restart: always
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - "./nginx/myconfig.conf:/etc/nginx/conf.d/default.conf"
+      - "./nginx/index.html:/usr/share/nginx/html/index.html"
+    networks:
+      - app-network
+    logging:
+      options:
+        max-size: "50m"
+        max-file: "5"
+  certbot:
+    ports:
+      - "6000:80"
+    env_file:
+      - .env
+    # и снова мониторуем директорию nginx
+    volumes:
+      - ./nginx/:/etc/nginx/
+    build:
+      context: ./certbot
+      dockerfile: Dockerfile
+      # задаем переменные среды
+      args:
+        DOMAIN_EMAIL: ${DOMAIN_EMAIL}
+        DOMAIN_URL: ${DOMAIN_URL}
+
+networks:
+  app-network:
+    driver: bridge

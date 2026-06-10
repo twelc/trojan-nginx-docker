@@ -1,0 +1,48 @@
+{
+    "run_type": "server",
+    "local_addr": "0.0.0.0",
+    "local_port": 443,
+    "remote_addr": "nginx",
+    "remote_port": 80,
+    "password": [
+        "pwd123"
+        
+    ],
+    "log_level": 5,
+    "ssl": {
+        "cert": "/etc/cert.crt",
+        "key": "/etc/key.key",
+        "sni": "abghdh.duckdns.org",
+	"alpn": [
+		"http/1.1",
+		"h2",
+		"h3"
+		]
+        
+    },
+    "websocket": {
+    	"enabled": true,
+    	"path": "/uaz",
+    	"hostname": "abghdh.duckdns.org"
+    },
+    "tcp": {
+        "prefer_ipv4": false,
+        "no_delay": true,
+        "keep_alive": true,
+        "reuse_port": false,
+        "fast_open": false,
+        "fast_open_qlen": 20
+    },
+    "mux": {
+    "enabled": true
+    },
+    "router": {
+    "enabled": true,
+    "block": [
+        "geoip:ru",
+        "geoip:private",
+        "full:localhost"
+    ],
+    "default_policy": "proxy"
+    }
+}
