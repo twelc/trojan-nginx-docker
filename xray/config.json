@@ -34,7 +34,8 @@
         },
         
 	"security": "reality",
-        "show": false,
+        "realitySettings":{
+          "show": false,
           "target": "nginx:8443",
           "xver": 0,
           "serverNames": ["abghdh.duckdns.org"],
@@ -51,6 +52,7 @@
             "bytesPerSec": 0,
             "burstBytesPerSec": 0
           }
+        }
       },
       
       "sniffing": {
