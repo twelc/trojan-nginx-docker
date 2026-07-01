@@ -1,0 +1,97 @@
+{
+    "log":{
+        "loglevel": "none"
+    },
+    "inbounds":[
+        {
+      "tag": "trojan",
+      "listen": "127.0.0.1",
+      "port": 443,
+      "protocol": "trojan",
+      "settings": {
+        "users": [
+          {
+            "password": "pwd123",
+            "email": "love@xray.com",
+            "level": 0
+          }
+        ],
+        "fallbacks": [
+          {
+            "dest": 80
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "xhttpSettings": {
+            "host": "abghdh.duckdns.org",
+            "path": "/uaz", 
+            "mode": "auto",
+            "extra": {
+              "xmux": {
+                "maxConnections": 1
+              }
+            }
+        },
+        "tlsSettings":{
+          "serverName": "abghdh.duckdns.org",
+          "allowInsecure": false,
+          "certificate":{
+            "certificateFile": "/etc/cert.crt",
+            "keyFile": "/etc/key.key"
+          }
+        }
+      },
+      
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      }
+    }
+
+    ],
+    "outbounds":[
+      {
+        "tag": "direct",
+        "protocol": "freedom"
+      },
+      {
+        "tag": "warp",
+        "protocol": "socks",
+        "settings":{
+          "address": "warp",
+          "port": 1080
+        }
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole"
+      }
+    ],
+
+    "routing":{
+      "rules": [
+    {
+      "type": "field",
+      "domain": ["geosite:youtube"],
+      "outboundTag": "direct"
+    },
+    {
+      "type": "field",
+      "domain": ["geosite:google"],
+      "outboundTag": "warp"
+    },
+    {
+      "type": "field",
+      "domain": ["geoip:ru"],
+      "outboundTag": "block"
+    },
+    
+    {
+      "type": "field",
+      "outboundTag": "direct"
+    }
+  ]        
+    }
+}

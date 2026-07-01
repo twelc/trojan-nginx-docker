@@ -14,6 +14,20 @@ services:
       - "./nginx/key.key:/etc/key.key"
       - "./trojan/config.json:/config/config.json"
       - "./trojan/geoip.dat:/geoip"
+  xray:
+    #image: trojangfw/trojan
+    image: teddysun/xray
+    restart: always
+    ports:
+      - "443:443"
+    networks:
+      - app-network
+    volumes:
+      - "./nginx/cert.crt:/etc/cert.crt"
+      - "./nginx/key.key:/etc/key.key"
+      - "./xray/config.json:/etc/xray/config.json"
+      - "./trojan/geoip.dat:/usr/share/xray/geoip.dat"
+      - "./trojan/geosite.dat:/usr/share/xray/geosite.dat"
   nginx:
     restart: always
     build: ./nginx
@@ -57,6 +71,14 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     restart: unless-stopped
+  warp:
+    image: caomingjun/warp
+    restart: always
+    ports:
+      - "1080:1080"
+    networks:
+      - app-network
+    
 
 networks:
   app-network:
