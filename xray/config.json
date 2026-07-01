@@ -7,15 +7,18 @@
       "tag": "trojan",
       "listen": "127.0.0.1",
       "port": 443,
-      "protocol": "trojan",
+      "protocol": "vless",
       "settings": {
         "users": [
           {
-            "password": "pwd123",
+            "id": "twelc",
+            "level": 0,
             "email": "love@xray.com",
-            "level": 0
+            "flow": "xtls-rprx-vision",
+            "reverse": {}
           }
         ],
+        "decryption": "mlkem768x25519plus.native.600s.SLrmLXxR0_MseZMr9yW3czL2vGZ4wOXO76frS0OHy2g",
         "fallbacks": [
           {
             "dest": 80
