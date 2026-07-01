@@ -40,10 +40,12 @@
         "tlsSettings":{
           "serverName": "abghdh.duckdns.org",
           "allowInsecure": false,
-          "certificate":{
+          "certificates":[
+            {
             "certificateFile": "/etc/cert.crt",
             "keyFile": "/etc/key.key"
           }
+          ]
         }
       },
       
