@@ -1,6 +1,6 @@
 {
     "log":{
-        "loglevel": "none"
+        "loglevel": "debug"
     },
     "inbounds":[
         {
@@ -14,16 +14,10 @@
             "id": "twelc",
             "level": 0,
             "email": "love@xray.com",
-            "flow": "xtls-rprx-vision",
-            "reverse": {}
+            "flow": "xtls-rprx-vision"
           }
         ],
-        "decryption": "mlkem768x25519plus.native.600s.SLrmLXxR0_MseZMr9yW3czL2vGZ4wOXO76frS0OHy2g",
-        "fallbacks": [
-          {
-            "dest": 80
-          }
-        ]
+        "decryption": "mlkem768x25519plus.native.600s.SLrmLXxR0_MseZMr9yW3czL2vGZ4wOXO76frS0OHy2g"
       },
       "streamSettings": {
         "network": "xhttp",
@@ -37,6 +31,7 @@
               }
             }
         },
+	"security": "tls",
         "tlsSettings":{
           "serverName": "abghdh.duckdns.org",
           "allowInsecure": false,
