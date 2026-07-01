@@ -17,7 +17,12 @@
             
           }
         ],
-        "decryption": "none"
+        "decryption": "none",
+        "fallbacks": [
+          {
+            "dest": 80
+          }
+        ]
       },
       "streamSettings": {
         "network": "xhttp",
