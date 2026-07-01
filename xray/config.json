@@ -28,7 +28,7 @@
         "xhttpSettings": {
             "host": "abghdh.duckdns.org",
             "path": "/uaz", 
-            "mode": "h2only",
+            "mode": "auto",
             "extra": {
               "xmux": {
                 "maxConnections": 1
@@ -40,6 +40,7 @@
         "tlsSettings":{
           "serverName": "abghdh.duckdns.org",
           "allowInsecure": false,
+          "alpn": ["h2", "http/1.1"],
           "certificates":[
             {
             "certificateFile": "/etc/cert.crt",
