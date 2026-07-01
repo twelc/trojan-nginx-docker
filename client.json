@@ -33,17 +33,14 @@
               }
             }
         },
-        "security":"tls",
-        "tlsSettings":{
+        "security": "reality",
+        "show": false,
+          "xver": 0,
           "serverName": "abghdh.duckdns.org",
-          "allowInsecure": false
-        }
-      },
-      
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
-      }
+          "password": "Y-0nITu2ZBvfdmtVksmL-BwUD_jIHsRoz2SDhgkjYGM",
+          "fingerprint": "edge",
+          "shortId": "d16aeaa704ffed3f"
+          
     }
 
     ],

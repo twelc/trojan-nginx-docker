@@ -13,16 +13,12 @@
           {
             "id": "twelc",
             "level": 0,
-            "email": "love@xray.com"
+            "email": "love@xray.com",
+            "flow": "xtls-rprx-vision"
             
           }
         ],
-        "decryption": "none",
-        "fallbacks": [
-          {
-            "dest": "nginx:80"
-          }
-        ]
+        "decryption": "mlkem768x25519plus.native.600s.SLrmLXxR0_MseZMr9yW3czL2vGZ4wOXO76frS0OHy2g"
       },
       "streamSettings": {
         "network": "xhttp",
@@ -36,17 +32,25 @@
               }
             }
         },
-	"security": "tls",
-        "tlsSettings":{
-          "serverName": "abghdh.duckdns.org",
-          "allowInsecure": false,
-          "certificates":[
-            {
-            "certificateFile": "/etc/cert.crt",
-            "keyFile": "/etc/key.key"
+        
+	"security": "reality",
+        "show": false,
+          "target": "nginx:8443",
+          "xver": 0,
+          "serverNames": ["abghdh.duckdns.org"],
+          "privateKey": "2E008WRH6UI-ZHM9my9nUoKoY6gpyRtltsLpbxgKqFg",
+          
+          "shortIds": ["d16aeaa704ffed3f"],
+          "limitFallbackUpload": {
+            "afterBytes": 0,
+            "bytesPerSec": 0,
+            "burstBytesPerSec": 0
+          },
+          "limitFallbackDownload": {
+            "afterBytes": 0,
+            "bytesPerSec": 0,
+            "burstBytesPerSec": 0
           }
-          ]
-        }
       },
       
       "sniffing": {
