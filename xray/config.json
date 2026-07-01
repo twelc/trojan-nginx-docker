@@ -5,7 +5,7 @@
     "inbounds":[
         {
       "tag": "trojan",
-      "listen": "127.0.0.1",
+      "listen": "",
       "port": 443,
       "protocol": "vless",
       "settings": {
@@ -13,11 +13,11 @@
           {
             "id": "twelc",
             "level": 0,
-            "email": "love@xray.com",
-            "flow": "xtls-rprx-vision"
+            "email": "love@xray.com"
+            
           }
         ],
-        "decryption": "mlkem768x25519plus.native.600s.SLrmLXxR0_MseZMr9yW3czL2vGZ4wOXO76frS0OHy2g"
+        "decryption": "none"
       },
       "streamSettings": {
         "network": "xhttp",

@@ -1,0 +1,62 @@
+{
+    "log":{
+        "loglevel": "debug"
+    },
+    "outbounds":[
+        {
+      "protocol": "vless",
+      "settings": {
+        "vnext":[
+        {
+        "address": "89.125.144.238",
+        "port": 443,
+        "users":[
+            {
+                "id": "twelc",
+        "level": 0,
+        
+        "encryption": "none"
+            }
+        ]
+     }
+        ]
+         },
+      "streamSettings": {
+        "network": "xhttp",
+        "xhttpSettings": {
+            "host": "abghdh.duckdns.org",
+            "path": "/uaz", 
+            "mode": "auto",
+            "extra": {
+              "xmux": {
+                "maxConnections": 1
+              }
+            }
+        },
+        "security":"tls",
+        "tlsSettings":{
+          "serverName": "abghdh.duckdns.org",
+          "allowInsecure": false
+        }
+      },
+      
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      }
+    }
+
+    ],
+    "inbounds":[
+      {
+        "listen": "127.0.0.1",
+        "port": 1080,
+        "protocol":"socks",
+        "settings": {
+        "auth": "noauth"
+        }
+
+      }
+    ]
+
+}
