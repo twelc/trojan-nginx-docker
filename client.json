@@ -13,11 +13,12 @@
         "users":[
             {
                 "id": "twelc",
-        "level": 0,
-        
-        "encryption": "none"
+            "level": 0,
+            "encryption": "none"
+
             }
         ]
+
      }
         ]
          },
@@ -26,31 +27,35 @@
         "xhttpSettings": {
             "host": "abghdh.duckdns.org",
             "path": "/uaz", 
-            "mode": "auto",
+            "mode": "h2only",
             "extra": {
               "xmux": {
                 "maxConnections": 1
               }
             }
         },
-        "security": "reality",
-        "show": false,
-          "xver": 0,
+        "security": "tls",
+        "tlsSettings":{
           "serverName": "abghdh.duckdns.org",
-          "password": "Y-0nITu2ZBvfdmtVksmL-BwUD_jIHsRoz2SDhgkjYGM",
-          "fingerprint": "edge",
-          "shortId": "d16aeaa704ffed3f"
-          
+          "allowInsecure": false
+        }
+        
+    }
     }
 
     ],
     "inbounds":[
       {
         "listen": "127.0.0.1",
-        "port": 1080,
+        "port": 10808,
         "protocol":"socks",
         "settings": {
-        "auth": "noauth"
+            "users":[
+                {
+                    "user":"twelc",
+                    "pass":"pwd123"
+                }
+            ]
         }
 
       }
