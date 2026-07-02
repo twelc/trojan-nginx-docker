@@ -4,7 +4,7 @@
     },
     "inbounds":[
         {
-      "tag": "trojan",
+      "tag": "vless-xhttp",
       "listen": "0.0.0.0",
       "port": 443,
       "protocol": "vless",
@@ -16,7 +16,7 @@
             "email": "love@xray.com"            
           }
         ],
-        "decryption": "none",
+        "decryption": "mlkem768x25519plus.native.600s.qEs8VsHnoD4YB9-iBXWsYbvC9IcdEVuQ8Tz1pWXKyF8",
         "fallbacks": [
           {
             "dest": "nginx:80"
