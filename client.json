@@ -14,7 +14,7 @@
             {
                 "id": "twelc",
             "level": 0,
-            "encryption": "mlkem768x25519plus.native.0rtt.HTtD36NidkRC4kfXbxSkCjyLrAGyPGEmEJ0NdGipc0s"
+            "encryption": "none"
 
             }
         ]

@@ -16,7 +16,7 @@
             "email": "love@xray.com"            
           }
         ],
-        "decryption": "mlkem768x25519plus.native.600s.qEs8VsHnoD4YB9-iBXWsYbvC9IcdEVuQ8Tz1pWXKyF8",
+        "decryption": "none",
         "fallbacks": [
           {
             "dest": "nginx:80"
