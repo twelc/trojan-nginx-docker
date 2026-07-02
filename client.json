@@ -4,7 +4,7 @@
     },
     "outbounds":[
         {
-      "protocol": "vless",
+      "protocol": "trojan",
       "settings": {
         "vnext":[
         {
@@ -12,10 +12,8 @@
         "port": 443,
         "users":[
             {
-                "id": "twelc",
-            "level": 0,
-            "encryption": "none"
-
+                "password": "pwd123",
+            "level": 0
             }
         ]
 
@@ -51,12 +49,7 @@
         "port": 10808,
         "protocol":"socks",
         "settings": {
-            "users":[
-                {
-                    "user":"twelc",
-                    "pass":"pwd123"
-                }
-            ]
+            "auth":"noauth"
         }
 
       }

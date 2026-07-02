@@ -4,19 +4,18 @@
     },
     "inbounds":[
         {
-      "tag": "vless-xhttp",
+      "tag": "trojan",
       "listen": "0.0.0.0",
       "port": 443,
-      "protocol": "vless",
+      "protocol": "trojan",
       "settings": {
-        "users": [
+         "users": [
           {
-            "id": "twelc",
-            "level": 0,
-            "email": "love@xray.com"            
+            "password": "pwd123",
+            "email": "love@xray.com",
+            "level": 0
           }
         ],
-        "decryption": "none",
         "fallbacks": [
           {
             "dest": "nginx:80"
