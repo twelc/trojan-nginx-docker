@@ -6,25 +6,21 @@
         {
       "protocol": "trojan",
       "settings": {
-        "vnext":[
+        "servers":[
         {
         "address": "89.125.144.238",
         "port": 443,
-        "users":[
-            {
-                "password": "pwd123",
-            "level": 0
-            }
+                "password": "pwd123"
+        }            
         ]
 
-     }
-        ]
-         },
+     }}
+        ],
       "streamSettings": {
         "network": "xhttp",
         "xhttpSettings": {
-            "host": "abghdh.duckdns.org",
-            "path": "/uaz", 
+            "host": "nfw1.online",
+            "path": "/uaz/", 
             "mode": "auto",
             "extra": {
               "xmux": {
@@ -34,15 +30,12 @@
         },
         "security": "tls",
         "tlsSettings":{
-          "serverName": "abghdh.duckdns.org",
+          "serverName": "nfw1.online",
           "allowInsecure": false,
           "alpn": ["h2"]
         }
         
-    }
-    }
-
-    ],
+    },
     "inbounds":[
       {
         "listen": "127.0.0.1",

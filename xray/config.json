@@ -25,14 +25,14 @@
       "streamSettings": {
         "network": "xhttp",
         "xhttpSettings": {
-            "host": "abghdh.duckdns.org",
+            "host": "nfw1.online",
             "path": "/uaz", 
             "mode": "auto"
         },
         
 	"security": "tls",
         "tlsSettings":{
-          "serverName": "abghdh.duckdns.org",
+          "serverName": "nfw1.online",
           "allowInsecure": false,
           "alpn": ["h2", "http/1.1"],
           "certificates":[
