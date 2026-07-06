@@ -1,6 +1,7 @@
 services:
 
   trojan:
+    tag: trojan
     #image: trojangfw/trojan
     image: gists/trojan-go
     command: trojan-go -config /config/config.json
@@ -15,11 +16,11 @@ services:
       - "./trojan/config.json:/config/config.json"
       - "./trojan/geoip.dat:/geoip"
   xray:
+    tag: xray
     image: teddysun/xray
     restart: always
     ports:
       - "443:443"
-      - "53:53/udp"
     networks:
       - app-network
     volumes:
@@ -29,6 +30,7 @@ services:
       - "./trojan/geoip.dat:/usr/share/xray/geoip.dat"
       - "./trojan/geosite.dat:/usr/share/xray/geosite.dat"
   nginx:
+    tag: nginx
     restart: always
     build: ./nginx
     ports:
@@ -45,6 +47,7 @@ services:
         max-size: "50m"
         max-file: "5"
   certbot:
+    tag: certbot
     ports:
       - "6000:80"
     env_file:
@@ -60,20 +63,8 @@ services:
         DOMAIN_EMAIL: ${DOMAIN_EMAIL}
         DOMAIN_URL: ${DOMAIN_URL}
 
-  dnstt-server:
-    container_name: dnstt-server
-    image: ghcr.io/kbnchk/dnstt-server:latest
-    command: ["-udp", ":5300", "-privkey-file", "/keys/server.key", "t.nfw1.online" , "host.docker.internal:22"]
-    ports:
-      - "53:5300/udp"
-    volumes:
-      - ./dnstt:/keys
-    networks:
-      - app-network
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    restart: unless-stopped
   warp:
+    tag: varp
     image: caomingjun/warp
     restart: always
     device_cgroup_rules:
