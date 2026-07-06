@@ -23,21 +23,16 @@
         ]
       },
       "streamSettings": {
-        "network": "xhttp",
-        "xhttpSettings": {
-            "host": "nfw1.online",
-            "path": "/uaz", 
-            "mode": "auto",
-            "extra": {
-              "xmux": {
-                "maxConnections": 1
-              }
-            }
+        "network": "websocket",
+        "wsSettings": {
+          "acceptProxyProtocol": false,
+          "path": "/uaz",
+          "host": "abghdh.duckdns.org"
         },
         
-	"security": "tls",
+	    "security": "tls",
         "tlsSettings":{
-          "serverName": "nfw1.online",
+          "serverName": "abghdh.duckdns.org",
           "allowInsecure": false,
           "alpn": ["h2", "http/1.1"],
           "certificates":[
@@ -55,28 +50,29 @@
       }
     },
     {
-      "protocol": "vless",
+      "tag":"ss",
       "listen": "0.0.0.0",
-      "port": 53,
+      "port": 10808,
+      "protocol": "shadowsocks",
       "settings": {
-        "clients": [
-          {"id":"twelc"}
-        ],
-        "decryption":"none"
-      },
-      "streamSettings":{
-        "network":"mkcp",
-        "kcpSettings":{
-          "mtu":900
-        },
-        "finalmask":{
-          "udp":[
-            {
-              "type":"xicmp"
-            }
-          ]
-        }
+        "network": "tcp,udp",
+        "method": "2022-blake3-aes-128-gcm",
+        "password": "s85rinuEoKrlGvWuQKMh2Q==",
+        "level": 0
       }
+    },
+    {
+      "listen": "0.0.0.0",
+        "port": 1080,
+        "protocol":"socks",
+        "settings": {
+            "users":[
+              {
+                "user":"twelc",
+                "pass":"pwd123"
+              }
+            ]
+        }
     }
 
     ],
@@ -96,6 +92,13 @@
       {
         "tag": "block",
         "protocol": "blackhole"
+      },
+      {
+        "tag":"loop",
+        "protocol":"loopback",
+        "settings":{
+          "inboundTag":"ss"
+        }
       }
     ],
 
@@ -110,6 +113,10 @@
       "type": "field",
       "domain": ["geosite:google"],
       "outboundTag": "warp"
+    },
+    {
+      "inboundTag":"trojan",
+      "outboundTag":"ss"
     }
   ]        
     }

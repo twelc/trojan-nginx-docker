@@ -4,39 +4,22 @@
     },
     "outbounds":[
       {
-      "protocol": "vless",
-      "settings": {
-        "vnext":[
-          {
-            "address":"192.168.1.1",
-            "port":53,
-            "users":[
-              {
-                "id":"twelc",
-                "encryption":"none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings":{
-        "network":"mkcp",
-        "kcpSettings":{
-          "mtu":130
+        "protocol": "shadowsocks",
+        "settings": {
+          "email": "love@xray.com",
+          "address": "127.0.0.1",
+          "port": 1234,
+          "method": "2022-blake3-aes-128-gcm",
+          "password": "s85rinuEoKrlGvWuQKMh2Q=="
         },
-        "finalmask":{
-          "udp":[
-            {
-              "type":"xicmp"
-            }
-          ]
+        "proxySettings": {
+          "tag": "trojan"
+        
         }
-      }
-    },
+      },
 
-
-
-        {
+      {
+      "tag":"trojan",
       "protocol": "trojan",
       "settings": {
         "servers":[
@@ -51,7 +34,7 @@
       "streamSettings": {
         "network": "xhttp",
         "xhttpSettings": {
-            "host": "nfw1.online",
+            "host": "abghdh.duckdns.org",
             "path": "/uaz", 
             "mode": "auto",
             "extra": {
@@ -62,7 +45,7 @@
         },
         "security": "tls",
         "tlsSettings":{
-          "serverName": "nfw1.online",
+          "serverName": "abghdh.duckdns.org",
           "allowInsecure": false
         }
         
