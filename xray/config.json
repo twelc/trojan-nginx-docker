@@ -49,18 +49,7 @@
         "destOverride": ["http", "tls"]
       }
     },
-    {
-      "tag":"ss",
-      "listen": "0.0.0.0",
-      "port": 10808,
-      "protocol": "shadowsocks",
-      "settings": {
-        "network": "tcp,udp",
-        "method": "2022-blake3-aes-128-gcm",
-        "password": "s85rinuEoKrlGvWuQKMh2Q==",
-        "level": 0
-      }
-    },
+
     {
       "listen": "0.0.0.0",
         "port": 1080,
@@ -92,13 +81,6 @@
       {
         "tag": "block",
         "protocol": "blackhole"
-      },
-      {
-        "tag":"loop",
-        "protocol":"loopback",
-        "settings":{
-          "inboundTag":"ss"
-        }
       }
     ],
 
@@ -113,10 +95,6 @@
       "type": "field",
       "domain": ["geosite:google"],
       "outboundTag": "warp"
-    },
-    {
-      "inboundTag":"ss",
-      "outboundTag":"loop"
     }
   ]        
     }

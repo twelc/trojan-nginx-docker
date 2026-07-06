@@ -4,21 +4,6 @@
     },
     "outbounds":[
       {
-        "protocol": "shadowsocks",
-        "settings": {
-          "email": "love@xray.com",
-          "address": "127.0.0.1",
-          "port": 1234,
-          "method": "2022-blake3-aes-128-gcm",
-          "password": "s85rinuEoKrlGvWuQKMh2Q=="
-        },
-        "proxySettings": {
-          "tag": "trojan"
-        
-        }
-      },
-
-      {
       "tag":"trojan",
       "protocol": "trojan",
       "settings": {
@@ -32,21 +17,17 @@
 
      },
       "streamSettings": {
-        "network": "xhttp",
-        "xhttpSettings": {
-            "host": "abghdh.duckdns.org",
-            "path": "/uaz", 
-            "mode": "auto",
-            "extra": {
-              "xmux": {
-                "maxConnections": 1
-              }
-            }
+        "network": "websocket",
+        "wsSettings": {
+          "acceptProxyProtocol": false,
+          "path": "/uaz",
+          "host": "abghdh.duckdns.org"
         },
         "security": "tls",
         "tlsSettings":{
           "serverName": "abghdh.duckdns.org",
-          "allowInsecure": false
+          "allowInsecure": false,
+          "alpn":["h2"]
         }
         
     }
