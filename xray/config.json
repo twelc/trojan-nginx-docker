@@ -115,8 +115,8 @@
       "outboundTag": "warp"
     },
     {
-      "inboundTag":"trojan",
-      "outboundTag":"ss"
+      "inboundTag":"ss",
+      "outboundTag":"loop"
     }
   ]        
     }
