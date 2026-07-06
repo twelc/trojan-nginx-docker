@@ -27,10 +27,7 @@
         "finalmask":{
           "udp":[
             {
-              "type":"xdns",
-              "settings":{
-                "domain":"t.nfwmedia.site"
-              }
+              "type":"xicmp"
             }
           ]
         }
