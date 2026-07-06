@@ -92,6 +92,20 @@ services:
       - ./warp:/var/lib/cloudflare-warp
     networks:
       - app-network
+  slipstream:
+    container_name: slipstream
+    restart: always
+    ports:
+      - "53:53"
+    image: glacial746/slipstream-rust
+    command:
+      [
+        "--dns-listen-port=53",
+        "--target-address=xray:10808", 
+        "--domain=t.nfwmedia.site", 
+        "--cert=/opt/certs/cert.pem",
+        "--key=/opt/certs/key.pem",
+      ]
     
 
 networks:
