@@ -67,7 +67,7 @@
       "streamSettings":{
         "network":"mkcp",
         "kcpSettings":{
-          "mtu":160
+          "mtu":900
         },
         "finalmask":{
           "udp":[

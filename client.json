@@ -22,14 +22,14 @@
       "streamSettings":{
         "network":"mkcp",
         "kcpSettings":{
-          "mtu":160
+          "mtu":130
         },
         "finalmask":{
           "udp":[
             {
               "type":"xdns",
               "settings":{
-                "domain":"tns.nfwmedia.site:53"
+                "domain":"t.nfwmedia.site"
               }
             }
           ]
