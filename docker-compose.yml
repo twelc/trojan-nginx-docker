@@ -101,7 +101,7 @@ services:
     command:
       [
         "--dns-listen-port=53",
-        "--target-address=xray:10808", 
+        "--target-address=0.0.0.0:10808", 
         "--domain=t.nfwmedia.site", 
         "--cert=/opt/certs/cert.pem",
         "--key=/opt/certs/key.pem",
