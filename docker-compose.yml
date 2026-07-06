@@ -1,7 +1,7 @@
 services:
 
   trojan:
-    tag: trojan
+    container_name: trojan
     #image: trojangfw/trojan
     image: gists/trojan-go
     command: trojan-go -config /config/config.json
@@ -16,7 +16,7 @@ services:
       - "./trojan/config.json:/config/config.json"
       - "./trojan/geoip.dat:/geoip"
   xray:
-    tag: xray
+    container_name: xray
     image: teddysun/xray
     restart: always
     ports:
@@ -30,7 +30,7 @@ services:
       - "./trojan/geoip.dat:/usr/share/xray/geoip.dat"
       - "./trojan/geosite.dat:/usr/share/xray/geosite.dat"
   nginx:
-    tag: nginx
+    container_name: nginx
     restart: always
     build: ./nginx
     ports:
@@ -47,6 +47,7 @@ services:
         max-size: "50m"
         max-file: "5"
   certbot:
+    container_name: certbot
     ports:
       - "6000:80"
     env_file:
@@ -63,7 +64,7 @@ services:
         DOMAIN_URL: ${DOMAIN_URL}
 
   warp:
-    tag: warp
+    container_name: warp
     image: caomingjun/warp
     restart: always
     device_cgroup_rules:
