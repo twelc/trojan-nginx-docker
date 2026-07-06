@@ -55,12 +55,7 @@
         "port": 10808,
         "protocol":"socks",
         "settings": {
-            "users":[
-              {
-                "user":"twelc",
-                "pass":"pwd123"
-              }
-            ]
+            "auth":"noauth"
         }
     }
 
