@@ -15,11 +15,11 @@ services:
       - "./trojan/config.json:/config/config.json"
       - "./trojan/geoip.dat:/geoip"
   xray:
-    #image: trojangfw/trojan
     image: teddysun/xray
     restart: always
     ports:
       - "443:443"
+      - "53:53/udp"
     networks:
       - app-network
     volumes:
@@ -33,7 +33,6 @@ services:
     build: ./nginx
     ports:
       - "80:80"
-      - "8443:8443"
     volumes:
       - "./nginx/myconfig.conf:/etc/nginx/conf.d/default.conf"
       - "./nginx/index.html:/usr/share/nginx/html/index.html"
