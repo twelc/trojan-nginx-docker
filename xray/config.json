@@ -27,7 +27,12 @@
         "xhttpSettings": {
             "host": "nfw1.online",
             "path": "/uaz", 
-            "mode": "auto"
+            "mode": "auto",
+            "extra": {
+              "xmux": {
+                "maxConnections": 1
+              }
+            }
         },
         
 	"security": "tls",
@@ -47,6 +52,30 @@
       "sniffing": {
         "enabled": true,
         "destOverride": ["http", "tls"]
+      }
+    },
+    {
+      "protocol": "vless",
+      "listen": "0.0.0.0",
+      "port": 53,
+      "settings": {
+        "clients": [
+          {"id":"twelc"}
+        ],
+        "decryption":"none"
+      },
+      "streamSettings":{
+        "network":"mkcp",
+        "finalmask":{
+          "udp":[
+            {
+              "type":"xdns",
+              "settings":{
+                "domains":["t.nfwmedia.site"]
+              }
+            }
+          ]
+        }
       }
     }
 
@@ -81,11 +110,6 @@
       "type": "field",
       "domain": ["geosite:google"],
       "outboundTag": "warp"
-    },
-    {
-      "type": "field",
-      "domain": ["geoip:ru"],
-      "outboundTag": "block"
     }
   ]        
     }

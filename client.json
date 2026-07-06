@@ -3,6 +3,39 @@
         "loglevel": "debug"
     },
     "outbounds":[
+      {
+      "protocol": "vless",
+      "settings": {
+        "vnext":[
+          {
+            "address":"tns.nfwmedia.site",
+            "port":53,
+            "users":[
+              {
+                "id":"twelc",
+                "encryption":"none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings":{
+        "network":"mkcp",
+        "finalmask":{
+          "udp":[
+            {
+              "type":"xdns",
+              "settings":{
+                "resolvers":["tns.nfwmedia.site"]
+              }
+            }
+          ]
+        }
+      }
+    },
+
+
+    
         {
       "protocol": "trojan",
       "settings": {
@@ -14,13 +47,12 @@
         }            
         ]
 
-     }}
-        ],
+     },
       "streamSettings": {
         "network": "xhttp",
         "xhttpSettings": {
             "host": "nfw1.online",
-            "path": "/uaz/", 
+            "path": "/uaz", 
             "mode": "auto",
             "extra": {
               "xmux": {
@@ -31,11 +63,13 @@
         "security": "tls",
         "tlsSettings":{
           "serverName": "nfw1.online",
-          "allowInsecure": false,
-          "alpn": ["h2"]
+          "allowInsecure": false
         }
         
-    },
+    }
+  }
+  
+  ],
     "inbounds":[
       {
         "listen": "127.0.0.1",
