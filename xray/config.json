@@ -27,12 +27,7 @@
         "xhttpSettings": {
             "host": "abghdh.duckdns.org",
             "path": "/uaz", 
-            "mode": "auto",
-            "extra": {
-              "xmux": {
-                "maxConnections": 1
-              }
-            }
+            "mode": "auto"
         },
         
 	"security": "tls",
