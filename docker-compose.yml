@@ -97,20 +97,15 @@ services:
       - ./warp:/var/lib/cloudflare-warp
     networks:
       - app-network
-  slipstream:
-    container_name: slipstream
-    restart: always
-    ports:
-      - "53:53"
-    image: glacial746/slipstream-rust
-    command:
-      [
-        "--dns-listen-port=53",
-        "--target-address=0.0.0.0:10808", 
-        "--domain=tns.nfwmedia.site", 
-        "--cert=/opt/certs/cert.pem",
-        "--key=/opt/certs/key.pem",
-      ]
+  
+  imap:
+    container_name: imap
+    build: 
+      context: ./imap
+      dockerfile: Dockerfile
+    networks:
+      - app-network
+
     
 
 networks:
