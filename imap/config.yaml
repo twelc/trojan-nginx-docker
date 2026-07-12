@@ -1,0 +1,11 @@
+mode: server
+target: "xray:10808"
+
+accounts:
+  - name: "primary"
+    host: "imap.mail.ru:993"
+    username: "twelc@mail.ru"
+    password: "lHGVsH1ZVbR42enSMBOO"
+    tls: "implicit"
+    folder_send: "outbound"
+    folder_recv: "inbound"
