@@ -21,6 +21,7 @@ services:
     restart: always
     ports:
       - "443:443"
+      - "10808:10808"
     networks:
       - app-network
     volumes:
@@ -69,6 +70,10 @@ services:
     restart: always
     device_cgroup_rules:
       - 'c 10:200 rwm'
+    logging:
+      options:
+        max-size: "50m"
+        max-file: "5"
     ports:
       - "1080:1080"
     environment:
@@ -102,7 +107,7 @@ services:
       [
         "--dns-listen-port=53",
         "--target-address=0.0.0.0:10808", 
-        "--domain=t.nfwmedia.site", 
+        "--domain=tns.nfwmedia.site", 
         "--cert=/opt/certs/cert.pem",
         "--key=/opt/certs/key.pem",
       ]

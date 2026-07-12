@@ -1,3 +1,13 @@
 2026-07-01T19:52:32.070Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
 2026-07-01T19:52:33.789Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
 2026-07-01T19:52:34.680Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
+2026-07-06T12:05:36.232Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
+2026-07-06T12:05:36.493Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
+2026-07-07T18:15:59.699Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
+2026-07-07T18:15:59.711Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
+2026-07-10T19:24:15.665Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
+2026-07-10T19:24:15.681Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
+2026-07-11T19:00:14.866Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
+2026-07-11T19:00:14.883Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
+2026-07-12T19:00:14.940Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
+2026-07-12T19:00:14.954Z  WARN dex: Failed to launch DEX tests. err=Cannot launch DEX tasks for non-teams registration.
