@@ -21,7 +21,6 @@ services:
     restart: always
     ports:
       - "443:443"
-      - "10808:10808"
     networks:
       - app-network
     volumes:
@@ -74,8 +73,6 @@ services:
       options:
         max-size: "50m"
         max-file: "5"
-    ports:
-      - "1080:1080"
     environment:
       - WARP_SLEEP=2
       # - WARP_LICENSE_KEY= # optional
