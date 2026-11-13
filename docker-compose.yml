@@ -44,8 +44,8 @@ services:
       - app-network
     logging:
       options:
-        max-size: "50m"
-        max-file: "5"
+        max-size: "1m"
+        max-file: "3"
   certbot:
     container_name: certbot
     ports:
@@ -71,8 +71,8 @@ services:
       - 'c 10:200 rwm'
     logging:
       options:
-        max-size: "50m"
-        max-file: "5"
+        max-size: "1m"
+        max-file: "1"
     environment:
       - WARP_SLEEP=2
       # - WARP_LICENSE_KEY= # optional
