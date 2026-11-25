@@ -1,6 +1,6 @@
 {
   "log": {
-    "loglevel": "none"
+    "loglevel": "debug"
   },
   "inbounds": [
     {
@@ -50,8 +50,8 @@
           "noSSEHeader": true,
           "scMaxBufferedPosts": 30,
           "scStreamUpServerSecs": "20-80",
-          "serverMaxHeaderBytes": 0,
-          "uplinkHTTPMethod": "GET",
+          "serverMaxHeaderBytes": 16384,
+          "uplinkHTTPMethod": "POST",
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0",
             "Accept": "*/*",
