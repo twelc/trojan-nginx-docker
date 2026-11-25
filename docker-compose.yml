@@ -17,8 +17,9 @@ services:
       - "./trojan/geoip.dat:/geoip"
   xray:
     container_name: xray
-    image: teddysun/xray
+    build: ./xray
     restart: always
+    env_file: .env
     ports:
       - "443:443"
     networks:
@@ -26,7 +27,7 @@ services:
     volumes:
       - "./nginx/cert.crt:/etc/cert.crt"
       - "./nginx/key.key:/etc/key.key"
-      - "./xray/config.json:/etc/xray/config.json"
+      - "./xray/config.json:/etc/xray/config.template.json"
       - "./trojan/geoip.dat:/usr/share/xray/geoip.dat"
       - "./trojan/geosite.dat:/usr/share/xray/geosite.dat"
   nginx:
