@@ -9,8 +9,8 @@
       "protocol": "vless",
       "tag": "in-443-tcp",
       "settings": {
-        "decryption": "ML-KEM-768 (random)",
-        "encryption": "ML-KEM-768 (random)"
+        "decryption": "mlkem768x25519plus.native.600s.PJ9VI95ZxKrR8NaCgpd_RUdMweI0dDG5CfrxiQ2jFwpV3YHCD4Uf6wclEobdEyjxia4quqKmI3UKT1tE7JyazA",
+        "encryption": "mlkem768x25519plus.native.0rtt.-1AJiAEzwWieaNcW7YNxN5AMGKkQsnRrEfYLSsgsEDytcxZEDGtXEOsvW_guxmJvIfcPOUimR-k2mtJMzkmwsiUOAWZ7eVGmqBOKstLK5Do9peLBk2e07dcUtJCyFZSRXVOcI_lO5ecoBqOoB8EUV-OBwpsUG0XExAECwLLJBpow6JO98CBCELSLDARt2tMx25HNYAOhoaTLUzimbnlf-GERqDepJ9NeL0ho9hNPX3w-Bre6HPp6qojHLPeBO8hO5ctc4NGSbdoLr2IRhrpNnfaepTF-_Vwh6UmfC0p7E1wVDXRmbBw5yOPKm7Z5qoh6GXcY8izG0LwvzDAKWNVnH_aOmzvFBpI9wuyP_ntVk8e-aDJyadogJxxwKyddL7S40LtYFAlfgdCCKDfJ4hynFkq01OEe_fgThstqyZO8L0p-P1heMmbIq5M0z4EffyduH5bK9naGYxR4d0W3_eTPRzGOSeVwN2MCOvRRhHguM7c-teRj2_aqFDShLmYQDWQKLQJ-CakUiOZCY_SmTwSKpAw1JgBXRMBboMFWKLpcfxdyt-Y05sSf2zJhMFkmsNV0XDI57gyvUVqtd8UgjKbNYCmzBEU_hsohN3EoGzd_8ENlw2R0ERc3ZIUCYiePkdMIrWMSzOgyyiEAIHqspbu-GGCMbjeut7o_P2mWWFm0wmlR_9lw8SU3cDzAf_bPUqhRVZCXrMgUglYuB2DI9pcgvbgJJeE8pQCq9yV9NPyjTNIRueGkwAMuWisCk2ITvbKEx8kx6CwiQJASQyIsgVBUiIdbFKpL-bURuDNZTPRm0CFXMdieG9QHRXK7fGs_PJGacpR75GW6GlGEIlcMKiNOSKhNCxIHK_wjSxqGqGq5OnhOKbgueqkKgLvMkwlYB1EQTiiBXzXJVuc6ABcHnPKryPp6yeWfV-eKT7qLb_o9U6hP32cl3gtmKrYSR_xVPRqSlmefEyuDr-ui2TUHrkCPtkaVa9F2oBpjk-RA21M9UgcIwLWrklZZ_heDZeyAIqk4lFVYc7VBc6NPsae6IocayewJnciylAxZ0BM8XawSsZC7-IbGmVvG3zJMIeFF3FJ38eGgY-eR-IsPJ4uUBxvK-2wjFmWoC0KU9lbJQ_MSvHxD0NosLUinL2jP7DSn0cWkWKFZeTgdlcEo7kSJGBJRvEuzrbEqucY8gzSBG3fMmis8srSLWBZg0KqvY7OI7PwCsnt6vaHNBDHKlEFIS3ptpkuhVqFsTQrHijZ04Fp2bNQ0rXQp--caq2cQ95iDTYeBLOVJ2FqEv1RmU9wfzHM45OsCwJkni2odEDZeQuFtvqyvKtIOIxcnYQNQbTVULDSsFZs-det8GmiZxkkcKkzJN2cMUYJaozKY3UhbkUeFLEWckxG7jFg9xiJrxHoGjcKqUou35xGH6IBJRsCqB6W14JkCperGOqVXjGisSWsXfDKYDeZM_xiGmNMoAyBM-7LACRkEHviw86lNtZEoqhoTp-F_iGVDp2Ck12GslhB46LYIJJh0OwfMdusHtsfK4lZbsOIEaC703eLXfu91y-nbg4LVI3TDSgSjBt0Q2RHFXHw"
       },
       "sniffing": {
         "enabled": true,
