@@ -1,49 +1,153 @@
 {
-    "log":{
-        "loglevel": "debug"
-    },
-    "outbounds":[
-      {
-      "tag":"trojan",
-      "protocol": "trojan",
-      "settings": {
-        "servers":[
-        {
-        "address": "89.125.144.238",
-        "port": 443,
-                "password": "pwd123"
-        }            
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "socks-in",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic",
+          "fakedns"
         ]
-
-     },
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "121b58b5cf395d38.c46.vm.mydomain.zone",
+            "port": 443,
+            "users": [
+              {
+                "id": "twelc",
+                "encryption": "mlkem768x25519plus.native.0rtt.-1AJiAEzwWieaNcW7YNxN5AMGKkQsnRrEfYLSsgsEDytcxZEDGtXEOsvW_guxmJvIfcPOUimR-k2mtJMzkmwsiUOAWZ7eVGmqBOKstLK5Do9peLBk2e07dcUtJCyFZSRXVOcI_lO5ecoBqOoB8EUV-OBwpsUG0XExAECwLLJBpow6JO98CBCELSLDARt2tMx25HNYAOhoaTLUzimbnlf-GERqDepJ9NeL0ho9hNPX3w-Bre6HPp6qojHLPeBO8hO5ctc4NGSbdoLr2IRhrpNnfaepTF-_Vwh6UmfC0p7E1wVDXRmbBw5yOPKm7Z5qoh6GXcY8izG0LwvzDAKWNVnH_aOmzvFBpI9wuyP_ntVk8e-aDJyadogJxxwKyddL7S40LtYFAlfgdCCKDfJ4hynFkq01OEe_fgThstqyZO8L0p-P1heMmbIq5M0z4EffyduH5bK9naGYxR4d0W3_eTPRzGOSeVwN2MCOvRRhHguM7c-teRj2_aqFDShLmYQDWQKLQJ-CakUiOZCY_SmTwSKpAw1JgBXRMBboMFWKLpcfxdyt-Y05sSf2zJhMFkmsNV0XDI57gyvUVqtd8UgjKbNYCmzBEU_hsohN3EoGzd_8ENlw2R0ERc3ZIUCYiePkdMIrWMSzOgyyiEAIHqspbu-GGCMbjeut7o_P2mWWFm0wmlR_9lw8SU3cDzAf_bPUqhRVZCXrMgUglYuB2DI9pcgvbgJJeE8pQCq9yV9NPyjTNIRueGkwAMuWisCk2ITvbKEx8kx6CwiQJASQyIsgVBUiIdbFKpL-bURuDNZTPRm0CFXMdieG9QHRXK7fGs_PJGacpR75GW6GlGEIlcMKiNOSKhNCxIHK_wjSxqGqGq5OnhOKbgueqkKgLvMkwlYB1EQTiiBXzXJVuc6ABcHnPKryPp6yeWfV-eKT7qLb_o9U6hP32cl3gtmKrYSR_xVPRqSlmefEyuDr-ui2TUHrkCPtkaVa9F2oBpjk-RA21M9UgcIwLWrklZZ_heDZeyAIqk4lFVYc7VBc6NPsae6IocayewJnciylAxZ0BM8XawSsZC7-IbGmVvG3zJMIeFF3FJ38eGgY-eR-IsPJ4uUBxvK-2wjFmWoC0KU9lbJQ_MSvHxD0NosLUinL2jP7DSn0cWkWKFZeTgdlcEo7kSJGBJRvEuzrbEqucY8gzSBG3fMmis8srSLWBZg0KqvY7OI7PwCsnt6vaHNBDHKlEFIS3ptpkuhVqFsTQrHijZ04Fp2bNQ0rXQp--caq2cQ95iDTYeBLOVJ2FqEv1RmU9wfzHM45OsCwJkni2odEDZeQuFtvqyvKtIOIxcnYQNQbTVULDSsFZs-det8GmiZxkkcKkzJN2cMUYJaozKY3UhbkUeFLEWckxG7jFg9xiJrxHoGjcKqUou35xGH6IBJRsCqB6W14JkCperGOqVXjGisSWsXfDKYDeZM_xiGmNMoAyBM-7LACRkEHviw86lNtZEoqhoTp-F_iGVDp2Ck12GslhB46LYIJJh0OwfMdusHtsfK4lZbsOIEaC703eLXfu91y-nbg4LVI3TDSgSjBt0Q2RHFXHw"
+              }
+            ]
+          }
+        ]
+      },
       "streamSettings": {
-        "network": "websocket",
-        "wsSettings": {
-          "acceptProxyProtocol": false,
-          "path": "/uaz",
-          "host": "abghdh.duckdns.org"
+        "network": "xhttp",
+        "xhttpSettings": {
+          "path": "/",
+          "host": "121b58b5cf395d38.c46.vm.mydomain.zone",
+          "mode": "packet-up",
+          "xPaddingBytes": "100-1000",
+          "xPaddingObfsMode": true,
+          "xPaddingKey": "32HEX",
+          "xPaddingHeader": "Cookie",
+          "xPaddingPlacement": "cookie",
+          "xPaddingMethod": "tokenish",
+          "sessionIDPlacement": "cookie",
+          "sessionIDKey": "32HEX",
+          "sessionIDTable": "Base62",
+          "sessionIDLength": "16-32",
+          "seqPlacement": "query",
+          "seqKey": "16HEX",
+          "uplinkDataPlacement": "cookie",
+          "uplinkDataKey": "v",
+          "scMaxEachPostBytes": "1024-4096",
+          "noSSEHeader": true,
+          "scMaxBufferedPosts": 30,
+          "scStreamUpServerSecs": "20-80",
+          "uplinkHTTPMethod": "GET",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0",
+            "Accept": "*/*",
+            "Accept-Language": "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3",
+            "Accept-Encoding": "gzip, deflate, br, zstd",
+            "Content-Type": "application/octet-stream"
+          },
+          "noGRPCHeader": true,
+          "xmux": {
+            "maxConcurrency": "16-32",
+            "maxConnections": "0",
+            "cMaxReuseTimes": 0,
+            "hMaxRequestTimes": "600-900",
+            "hMaxReusableSecs": "1800-3000",
+            "hKeepAlivePeriod": 30
+          }
         },
         "security": "tls",
-        "tlsSettings":{
-          "serverName": "abghdh.duckdns.org",
-          "allowInsecure": false,
-          "alpn":["h2"]
+        "tlsSettings": {
+          "serverName": "121b58b5cf395d38.c46.vm.mydomain.zone",
+          "alpn": [
+            "h3",
+            "h2",
+            "http/1.1"
+          ],
+          "fingerprint": "firefox",
+          "allowInsecure": false
+        },
+        "finalmask": {
+          "quicParams": {
+            "congestion": "bbr",
+            "debug": false,
+            "maxIdleTimeout": 30,
+            "keepAlivePeriod": 10,
+            "disablePathMTUDiscovery": true,
+            "disableStatelessReset": true,
+            "maxIncomingStreams": 1024,
+            "initStreamReceiveWindow": 8388608,
+            "maxStreamReceiveWindow": 8388608,
+            "initConnectionReceiveWindow": 20971520,
+            "maxConnectionReceiveWindow": 20971520,
+            "bbrProfile": "aggressive"
+          }
+        },
+        "sockopt": {
+          "tcpFastOpen": true,
+          "tcpMaxSeg": 1460,
+          "tcpKeepAliveInterval": 60,
+          "tcpKeepAliveIdle": 60,
+          "tcpUserTimeout": 30000,
+          "tcpcongestion": "bbr",
+          "domainStrategy": "AsIs"
         }
-        
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole"
     }
-  }
-  
   ],
-    "inbounds":[
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
       {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol":"socks",
-        "settings": {
-            "auth":"noauth"
-        }
-
+        "type": "field",
+        "ip": [
+          "geoip:private",
+          "geoip:ru"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "geosite:ru"
+        ],
+        "outboundTag": "direct"
       }
     ]
-
+  }
 }
