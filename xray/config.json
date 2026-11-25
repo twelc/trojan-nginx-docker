@@ -1,97 +1,183 @@
 {
-    "log":{
-        "loglevel": "none"
-    },
-    "inbounds":[
-        {
-      "tag": "vless",
-      "listen": "0.0.0.0",
+  "log": {
+    "loglevel": "none"
+  },
+  "inbounds": [
+    {
+      "listen": "",
       "port": 443,
       "protocol": "vless",
+      "tag": "in-443-tcp",
       "settings": {
-         "users": [
-          {
-            "id": "twelc",
-            "level": 0,
-            "email": "love@xray.com"
-          }
-        ],
-        "decryption": "none",
-        "fallbacks": [
-          {
-            "dest": "nginx:80"
-          }
+        "decryption": "ML-KEM-768 (random)",
+        "encryption": "ML-KEM-768 (random)"
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic",
+          "fakedns"
         ]
       },
       "streamSettings": {
-        "network": "websocket",
-        "wsSettings": {
-          "acceptProxyProtocol": false,
-          "path": "/uaz",
-          "host": "abghdh.duckdns.org"
+        "network": "xhttp",
+        "xhttpSettings": {
+          "path": "/",
+          "host": "abghdh.duckdns.org",
+          "mode": "packet-up",
+          "xPaddingBytes": "100-1000",
+          "xPaddingObfsMode": true,
+          "xPaddingKey": "32HEX",
+          "xPaddingHeader": "Cookie",
+          "xPaddingPlacement": "cookie",
+          "xPaddingMethod": "tokenish",
+          "sessionIDPlacement": "cookie",
+          "sessionIDKey": "32HEX",
+          "sessionIDTable": "Base62",
+          "sessionIDLength": "16-32",
+          "seqPlacement": "query",
+          "seqKey": "16HEX",
+          "uplinkDataPlacement": "query",
+          "uplinkDataKey": "v",
+          "scMaxEachPostBytes": "1024-4096",
+          "noSSEHeader": true,
+          "scMaxBufferedPosts": 30,
+          "scStreamUpServerSecs": "20-80",
+          "serverMaxHeaderBytes": 0,
+          "uplinkHTTPMethod": "GET",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0",
+            "Accept": "*/*",
+            "Accept-Language": "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3",
+            "Accept-Encoding": "gzip, deflate, br, zstd",
+            "Content-Type": "application/octet-stream"
+          },
+          "scMinPostsIntervalMs": "",
+          "uplinkChunkSize": 0,
+          "noGRPCHeader": true,
+          "xmux": {
+            "maxConcurrency": "16-32",
+            "maxConnections": "0",
+            "cMaxReuseTimes": 0,
+            "hMaxRequestTimes": "600-900",
+            "hMaxReusableSecs": "1800-3000",
+            "hKeepAlivePeriod": 30
+          },
+          "enableXmux": true
         },
-        
-	    "security": "tls",
-        "tlsSettings":{
+        "security": "tls",
+        "tlsSettings": {
           "serverName": "abghdh.duckdns.org",
-          "allowInsecure": false,
-          "alpn": ["h2", "http/1.1"],
-          "certificates":[
+          "minVersion": "1.2",
+          "maxVersion": "1.3",
+          "cipherSuites": "",
+          "rejectUnknownSni": false,
+          "disableSystemRoot": false,
+          "enableSessionResumption": true,
+          "certificates": [
             {
-            "certificateFile": "/etc/cert.crt",
-            "keyFile": "/etc/key.key"
+              "certificateFile": "/etc/cert.crt",
+              "keyFile": "/etc/key.crt",
+              "ocspStapling": 0,
+              "oneTimeLoading": true,
+              "usage": "encipherment",
+              "buildChain": false,
+              "useFile": true
+            }
+          ],
+          "alpn": [
+            "h3",
+            "h2",
+            "http/1.1"
+          ],
+          "echServerKeys": "",
+          "curvePreferences": [],
+          "settings": {
+            "fingerprint": "firefox",
+            "echConfigList": "",
+            "pinnedPeerCertSha256": [],
+            "verifyPeerCertByName": ""
           }
-          ]
+        },
+        "externalProxy": [],
+        "finalmask": {
+          "quicParams": {
+            "congestion": "bbr",
+            "debug": false,
+            "maxIdleTimeout": 30,
+            "keepAlivePeriod": 10,
+            "disablePathMTUDiscovery": true,
+            "disableStatelessReset": true,
+            "maxIncomingStreams": 1024,
+            "initStreamReceiveWindow": 8388608,
+            "maxStreamReceiveWindow": 8388608,
+            "initConnectionReceiveWindow": 20971520,
+            "maxConnectionReceiveWindow": 20971520,
+            "bbrProfile": "aggressive"
+          }
+        },
+        "sockopt": {
+          "tcpFastOpen": true,
+          "tproxy": "off",
+          "penetrate": false,
+          "tcpMaxSeg": 1460,
+          "tcpKeepAliveInterval": 60,
+          "tcpKeepAliveIdle": 60,
+          "tcpUserTimeout": 30000,
+          "tcpcongestion": "bbr",
+          "acceptProxyProtocol": false,
+          "mark": 0,
+          "tcpMptcp": false,
+          "domainStrategy": "AsIs",
+          "dialerProxy": "",
+          "V6Only": false,
+          "tcpWindowClamp": 0,
+          "interface": "",
+          "trustedXForwardedFor": [
+            "X-Real-IP"
+          ],
+          "addressPortStrategy": "none",
+          "customSockopt": []
         }
-      },
-      
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "warp",
+      "protocol": "socks",
+      "settings": {
+        "address": "warp",
+        "port": 1080
       }
     },
-
     {
-      "listen": "0.0.0.0",
-        "port": 10808,
-        "protocol":"socks",
-        "settings": {
-            "auth":"noauth"
-        }
+      "tag": "block",
+      "protocol": "blackhole"
     }
-
-    ],
-    "outbounds":[
+  ],
+  "routing": {
+    "rules": [
       {
-        "tag": "direct",
-        "protocol": "freedom"
+        "type": "field",
+        "domain": [
+          "geosite:youtube"
+        ],
+        "outboundTag": "direct"
       },
       {
-        "tag": "warp",
-        "protocol": "socks",
-        "settings":{
-          "address": "warp",
-          "port": 1080
-        }
-      },
-      {
-        "tag": "block",
-        "protocol": "blackhole"
+        "type": "field",
+        "domain": [
+          "geosite:google"
+        ],
+        "outboundTag": "warp"
       }
-    ],
-
-    "routing":{
-      "rules": [
-    {
-      "type": "field",
-      "domain": ["geosite:youtube"],
-      "outboundTag": "direct"
-    },
-    {
-      "type": "field",
-      "domain": ["geosite:google"],
-      "outboundTag": "warp"
-    }
-  ]        
-    }
+    ]
+  }
 }
