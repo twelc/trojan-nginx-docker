@@ -79,7 +79,7 @@
           "certificates": [
             {
               "certificateFile": "/etc/cert.crt",
-              "keyFile": "/etc/key.crt",
+              "keyFile": "/etc/key.key",
               "ocspStapling": 0,
               "oneTimeLoading": true,
               "usage": "encipherment",
@@ -164,6 +164,13 @@
   ],
   "routing": {
     "rules": [
+      {
+        "type": "field",
+        "domain": [
+          "geoip:ru"
+        ],
+        "outboundTag": "block"
+      },
       {
         "type": "field",
         "domain": [
